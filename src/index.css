@@ -1,13 +1,141 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "AmericanCaptain";
+  src: local("AmericanCaptain"),
+   url("./fonts/AmericanCaptain.otf") format("opentype");
+  font-weight: bold;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "TechHeadlines";
+  src: local("TechHeadlines"),
+   url("./fonts/TechHeadlines.otf") format("opentype");
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: rgb(50, 54, 66);
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 216px;
+  color: #fff;
+}
+
+.card--visual {
+  height: 300px;
+  width: 216px;
+  position: relative;
+}
+
+.card--main {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  aspect-ratio: 0.72;
+  background-image: url("https://i0.wp.com/lasetadelgoblin.com/wp-content/uploads/2021/06/2-5.jpg?w=846&ssl=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 16.00px,16.00px 0,calc(100% - 16.00px) 0,100% 16.00px,100% calc(100% - 16.00px),calc(100% - 16.00px) 100%,16.00px 100%,0 calc(100% - 16.00px));
+}
+
+.card--main:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(253,195,0,1) 0%, rgba(255,224,4,1) 60%);
+  clip-path: polygon(0 16.00px,16.00px 0,calc(100% - 16.00px) 0,100% 16.00px,100% calc(100% - 16.00px),calc(100% - 16.00px) 100%,16.00px 100%,0 calc(100% - 16.00px),0 16.00px,5px  calc(16.00px + 2.07px),5px calc(100% - 16.00px - 2.07px),calc(16.00px + 2.07px) calc(100% - 5px),calc(100% - 16.00px - 2.07px) calc(100% - 5px),calc(100% - 5px) calc(100% - 16.00px - 2.07px),calc(100% - 5px) calc(16.00px + 2.07px),calc(100% - 16.00px - 2.07px) 5px,calc(16.00px + 2.07px) 5px,5px calc(16.00px + 2.07px));
+}
+
+.card--stats {
+  position: absolute;
+  font-size: 2rem;
+  z-index: 2;
+  top: -12px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  font-family: "TechHeadlines";
+  font-style: italic;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 #000;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.cost {
+  width: 50px;
+  aspect-ratio: 1;
+  left: -20px;
+  border-radius: 50%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='25' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%232349FE' fill-opacity='0.6' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(86,134,249,1) 0%, rgba(35,73,254,1) 60%);
+}
+
+.power--wrap {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  filter: drop-shadow(2px 2px 0 #000);
+}
+
+.power {
+  width: 60px;
+  height: 50px;
+  /* background: linear-gradient(135deg, rgba(251,184,96,1) 0%, rgba(254,98,5,1) 60%); */
+  right: -20px;
+  clip-path: polygon(
+    50% 0%,
+    85% 25%,
+    85% 75%,
+    50% 100%,
+    15% 75%,
+    15% 25%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='25' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FE6205' fill-opacity='0.6' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(251,184,96,1) 0%, rgba(254,98,5,1) 60%);
+}
+
+.card--name {
+  position: absolute;
+  font-size: 4rem;
+  line-height: 40px;
+  z-index: 2;
+  bottom: -20px;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100%;
+  text-align: center;
+  font-family: "AmericanCaptain";
+  text-shadow: 2px 2px 0 #000;
+}
+
+.card--description {
+  box-sizing: border-box;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 25px;
+  padding: 0 5px;
+}
+
+.bold {
+  font-weight: bold;
 }
