@@ -50,7 +50,7 @@ export default [
     {
         id: 5,
         name: "Black Widow",
-        description: "Adds Widow's Bite to opponent's hand",
+        description: "Adds a Widow's Bite to opponent's hand",
         image: "https://hips.hearstapps.com/digitalspyuk.cdnds.net/11/10/550w_comics_fear_itself_black_widow.jpg?resize=480:*",
         stats: {
             cost: 2,
