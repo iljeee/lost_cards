@@ -3,9 +3,11 @@ import Card from "./components/Card";
 import Form from "./components/Form";
 import CardData from "./CardData";
 import "./index.css"
+import { EasybaseProvider, useEasybase } from 'easybase-react';
 
 function App() {
-  const collection = CardData.map(card => {
+  const [cardData, setCardData] = React.useState(CardData)
+  const collection = cardData.map(card => {
     return <Card
       key={card.id}
       id={card.id}

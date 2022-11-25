@@ -12,6 +12,10 @@
   font-weight: bold;
 }
 
+:root {
+  --generalScale: 0.66
+}
+
 * {
   margin: 0;
 }
@@ -21,11 +25,12 @@ html {
 }
 
 body {
-  background-color: rgb(50, 54, 66);
+  background: linear-gradient(135deg, rgba(211,155,194,1) 0%, rgba(127,67,125,1) 32%, rgba(33,33,45,1) 100%), linear-gradient(345deg, rgba(211,155,194,0.9) 0%, rgba(127,67,125,0.9) 32%, rgba(33,33,45,0.9) 100%);
 }
 
 .app {
   display: flex;
+  /* overflow: hidden; */
 }
 
 .creator {
@@ -44,23 +49,40 @@ body {
 
 .collection {
   width: 70vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   overflow: scroll;
+  padding: 40px;
 }
 
 .card {
   width: 216px;
   color: #fff;
-  margin: 40px;
+  padding: 0 20px;
+  margin: 40px 0 0 0;
+  transition: all 0.2s;
+}
+
+.collection .card {
+  width: calc(216px*var(--generalScale));
+  padding: 0 30px;
+  margin: 20px 0;
+}
+.collection .card:hover {
+  transform: scale(1.2);
 }
 
 .card--visual {
   height: 300px;
   width: 100%;
   position: relative;
+}
+
+.collection .card--visual {
+  height: calc(300px*var(--generalScale));
 }
 
 .card--main {
@@ -75,6 +97,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   clip-path: polygon(0 16.00px,16.00px 0,calc(100% - 16.00px) 0,100% 16.00px,100% calc(100% - 16.00px),calc(100% - 16.00px) 100%,16.00px 100%,0 calc(100% - 16.00px));
+}
+
+.creator .card--main {
+  background-image: url("https://images.immediate.co.uk/production/volatile/sites/25/2022/04/mysteries-universe-4e3dc50.jpg?quality=90&resize=980,654");
+  background-position: center;
 }
 
 .card--main:before {
@@ -99,12 +126,23 @@ body {
   text-shadow: 2px 2px 0 #000;
 }
 
+.collection .card--stats {
+  font-size: calc(2.6rem*0.6);
+  top: calc(-12px*var(--generalScale));
+  line-height: calc(50px*var(--generalScale));
+}
+
 .cost {
   width: 50px;
   aspect-ratio: 1;
   left: -20px;
   border-radius: 50%;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='25' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%232349FE' fill-opacity='0.6' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(86,134,249,1) 0%, rgba(35,73,254,1) 60%);
+}
+
+.collection .cost {
+  width: calc(50px*var(--generalScale));
+  left: calc(-20px*var(--generalScale));
 }
 
 .power--wrap {
@@ -128,6 +166,12 @@ body {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='25' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23FE6205' fill-opacity='0.6' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(135deg, rgba(251,184,96,1) 0%, rgba(254,98,5,1) 60%);
 }
 
+.collection .power {
+  width: calc(60px*var(--generalScale));
+  height: calc(50px*var(--generalScale));
+  right: calc(-20px*var(--generalScale));
+}
+
 .card--name {
   position: absolute;
   font-size: 4rem;
@@ -144,6 +188,12 @@ body {
   text-shadow: 2px 2px 0 #000;
 }
 
+.collection .card--name {
+  font-size: calc(4rem*var(--generalScale));
+  line-height: 24px;
+  bottom: -12px;
+}
+
 .card--description {
   box-sizing: border-box;
   width: 100%;
@@ -153,6 +203,14 @@ body {
   line-height: 20px;
   margin-top: 25px;
   padding: 0 5px;
+}
+
+.collection .card--description {
+  font-size: calc(1.5rem*0.8);
+  line-height: calc(20px*0.85);
+  margin-top: calc(25px*0.7);
+  padding: 0 2px;
+  min-height: 50px;
 }
 
 .bold {

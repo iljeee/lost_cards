@@ -24,7 +24,7 @@ export default function Card(props) {
                 <p className="card--name">{props.name}</p>
             </div>
             {/* </Tilt> */}
-            <p className="card--description"><span className="bold">{props.abilityType}:</span> {props.description}</p>
+            <p className="card--description"><span className="bold">{props.abilityType}{props.abilityType === "" ? "" : ":"}</span> {props.description}</p>
         </div>
     )
 }
